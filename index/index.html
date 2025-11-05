@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aprende OOP con Python - Simulador Pokémon</title>
+    <style>
+        /* Design System CSS */
+        :root {
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-bg-1: rgba(59, 130, 246, 0.08);
+            --color-bg-2: rgba(245, 158, 11, 0.08);
+            --color-bg-3: rgba(34, 197, 94, 0.08);
+            --color-bg-4: rgba(239, 68, 68, 0.08);
+            --color-bg-5: rgba(147, 51, 234, 0.08);
+            --color-bg-6: rgba(249, 115, 22, 0.08);
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+            --font-size-sm: 12px;
+            --font-size-base: 14px;
+            --font-size-lg: 16px;
+            --font-size-xl: 18px;
+            --font-size-2xl: 20px;
+            --font-size-3xl: 24px;
+            --font-size-4xl: 30px;
+            --font-weight-normal: 400;
+            --font-weight-medium: 500;
+            --font-weight-semibold: 550;
+            --font-weight-bold: 600;
+            --line-height-tight: 1.2;
+            --line-height-normal: 1.5;
+            --space-8: 8px;
+            --space-12: 12px;
+            --space-16: 16px;
+            --space-20: 20px;
+            --space-24: 24px;
+            --space-32: 32px;
+            --radius-base: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            --duration-fast: 150ms;
+            --duration-normal: 250ms;
+            --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-gray-400-rgb: 119, 124, 124;
+                --color-teal-300-rgb: 50, 184, 198;
+                --color-gray-300-rgb: 167, 169, 169;
+                --color-gray-200-rgb: 245, 245, 245;
+                --color-bg-1: rgba(29, 78, 216, 0.15);
+                --color-bg-2: rgba(180, 83, 9, 0.15);
+                --color-bg-3: rgba(21, 128, 61, 0.15);
+                --color-bg-4: rgba(185, 28, 28, 0.15);
+                --color-bg-5: rgba(107, 33, 168, 0.15);
+                --color-bg-6: rgba(194, 65, 12, 0.15);
+                --color-background: var(--color-charcoal-700);
+                --color-surface: var(--color-charcoal-800);
+                --color-text: var(--color-gray-200);
+                --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+                --color-primary: var(--color-teal-300);
+                --color-primary-hover: var(--color-teal-400);
+                --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+                --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+                --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family-base);
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: var(--line-height-normal);
+            font-size: var(--font-size-base);
+        }
+
+        .app-container {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* Sidebar Navigation */
+        .sidebar {
+            width: 280px;
+            background-color: var(--color-surface);
+            border-right: 1px solid var(--color-border);
+            padding: var(--space-24);
+            overflow-y: auto;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+        }
+
+        .sidebar h1 {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-8);
+            color: var(--color-text);
+        }
+
+        .sidebar-subtitle {
+            font-size: var(--font-size-sm);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-24);
+            line-height: 1.4;
+        }
+
+        .module-nav {
+            list-style: none;
+        }
+
+        .module-nav-item {
+            margin-bottom: var(--space-8);
+        }
+
+        .module-nav-button {
+            width: 100%;
+            text-align: left;
+            padding: var(--space-12);
+            background: transparent;
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-base);
+            color: var(--color-text);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            transition: all var(--duration-fast) var(--ease-standard);
+            display: flex;
+            align-items: center;
+            gap: var(--space-8);
+        }
+
+        .module-nav-button:hover {
+            background-color: var(--color-secondary);
+        }
+
+        .module-nav-button.active {
+            background-color: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .module-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: var(--color-secondary);
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-bold);
+        }
+
+        .module-nav-button.active .module-number {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            padding: var(--space-32);
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .module-content {
+            display: none;
+        }
+
+        .module-content.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .module-header {
+            margin-bottom: var(--space-32);
+        }
+
+        .module-title {
+            font-size: var(--font-size-4xl);
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--space-12);
+            color: var(--color-text);
+        }
+
+        .module-description {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+        }
+
+        .section {
+            background-color: var(--color-surface);
+            border: 1px solid var(--color-card-border);
+            border-radius: var(--radius-lg);
+            padding: var(--space-24);
+            margin-bottom: var(--space-24);
+        }
+
+        .section-title {
+            font-size: var(--font-size-xl);
+            font-weight: var(--font-weight-semibold);
+            margin-bottom: var(--space-16);
+            color: var(--color-text);
+        }
+
+        .concept-card {
+            background-color: var(--color-bg-1);
+            border-left: 3px solid var(--color-primary);
+            padding: var(--space-16);
+            margin-bottom: var(--space-12);
+            border-radius: var(--radius-base);
+        }
+
+        .concept-name {
+            font-weight: var(--font-weight-bold);
+            color: var(--color-primary);
+            margin-bottom: var(--space-8);
+            font-size: var(--font-size-base);
+        }
+
+        .concept-definition {
+            color: var(--color-text);
+            font-size: var(--font-size-base);
+            line-height: 1.6;
+        }
+
+        .code-section {
+            margin-top: var(--space-16);
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-12);
+        }
+
+        .toggle-code-btn {
+            padding: var(--space-8) var(--space-16);
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            font-size: var(--font-size-sm);
+            font-weight: var(--font-weight-medium);
+            transition: background-color var(--duration-fast) var(--ease-standard);
+        }
+
+        .toggle-code-btn:hover {
+            background-color: var(--color-primary-hover);
+        }
+
+        .code-block {
+            background-color: var(--color-charcoal-800);
+            color: var(--color-gray-200);
+            padding: var(--space-20);
+            border-radius: var(--radius-base);
+            overflow-x: auto;
+            font-family: var(--font-family-mono);
+            font-size: var(--font-size-sm);
+            line-height: 1.6;
+            display: none;
+        }
+
+        .code-block.visible {
+            display: block;
+        }
+
+        .code-block pre {
+            margin: 0;
+            white-space: pre-wrap;
+        }
+
+        /* Syntax highlighting */
+        .keyword { color: #FF79C6; }
+        .string { color: #F1FA8C; }
+        .comment { color: #6272A4; font-style: italic; }
+        .function { color: #50FA7B; }
+        .class-name { color: #8BE9FD; }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: var(--space-32);
+            gap: var(--space-16);
+        }
+
+        .nav-btn {
+            padding: var(--space-12) var(--space-24);
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            border-radius: var(--radius-base);
+            cursor: pointer;
+            font-size: var(--font-size-base);
+            font-weight: var(--font-weight-medium);
+            transition: background-color var(--duration-fast) var(--ease-standard);
+            flex: 1;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--color-primary-hover);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .nav-btn.secondary {
+            background-color: var(--color-secondary);
+            color: var(--color-text);
+        }
+
+        .nav-btn.secondary:hover {
+            background-color: rgba(var(--color-brown-600-rgb), 0.2);
+        }
+
+        .progress-bar {
+            background-color: var(--color-secondary);
+            height: 6px;
+            border-radius: 3px;
+            margin-bottom: var(--space-24);
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background-color: var(--color-primary);
+            transition: width var(--duration-normal) var(--ease-standard);
+        }
+
+        .architecture-image {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            margin-top: var(--space-16);
+            border: 1px solid var(--color-card-border);
+        }
+
+        .architecture-section {
+            background-color: var(--color-bg-3);
+            padding: var(--space-24);
+            border-radius: var(--radius-lg);
+            margin-top: var(--space-16);
+        }
+
+        .architecture-text {
+            font-family: var(--font-family-mono);
+            font-size: var(--font-size-sm);
+            line-height: 1.8;
+            white-space: pre-line;
+            color: var(--color-text);
+        }
+
+        .highlight-box {
+            background-color: var(--color-bg-2);
+            border-left: 3px solid var(--color-orange-500);
+            padding: var(--space-16);
+            margin: var(--space-16) 0;
+            border-radius: var(--radius-base);
+        }
+
+        .highlight-box strong {
+            color: var(--color-orange-500);
+        }
+
+        .final-summary {
+            background: linear-gradient(135deg, var(--color-bg-1) 0%, var(--color-bg-3) 100%);
+            padding: var(--space-32);
+            border-radius: var(--radius-lg);
+            text-align: center;
+            margin-top: var(--space-24);
+        }
+
+        .final-summary h3 {
+            font-size: var(--font-size-3xl);
+            margin-bottom: var(--space-16);
+            color: var(--color-text);
+        }
+
+        .final-summary p {
+            font-size: var(--font-size-lg);
+            color: var(--color-text-secondary);
+            margin-bottom: var(--space-24);
+        }
+
+        .github-link {
+            display: inline-block;
+            padding: var(--space-12) var(--space-24);
+            background-color: var(--color-charcoal-800);
+            color: white;
+            text-decoration: none;
+            border-radius: var(--radius-base);
+            font-weight: var(--font-weight-medium);
+            transition: transform var(--duration-fast) var(--ease-standard);
+        }
+
+        .github-link:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .app-container {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                width: 100%;
+                position: static;
+                height: auto;
+                border-right: none;
+                border-bottom: 1px solid var(--color-border);
+            }
+
+            .main-content {
+                padding: var(--space-16);
+            }
+
+            .module-title {
+                font-size: var(--font-size-3xl);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h1>🐍 OOP con Python</h1>
+            <p class="sidebar-subtitle">Aprende programación orientada a objetos creando un simulador de combate Pokémon</p>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressBar"></div>
+            </div>
+            <ul class="module-nav" id="moduleNav">
+                <!-- Navigation items will be generated by JavaScript -->
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content" id="mainContent">
+            <!-- Module 0: Introduction -->
+            <div class="module-content active" data-module="0">
+                <div class="module-header">
+                    <h2 class="module-title">¡Bienvenido a tu Aventura OOP! 🚀</h2>
+                    <p class="module-description">Vamos a aprender Programación Orientada a Objetos (OOP) en Python de forma práctica y divertida</p>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">¿Qué vamos a construir?</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.6;">Un <strong>simulador de combate Pokémon</strong> completo que incluirá:</p>
+                    <ul style="margin-left: 20px; line-height: 1.8;">
+                        <li>✨ Clases para Pokémon con atributos y métodos</li>
+                        <li>⚔️ Sistema de movimientos y tipos</li>
+                        <li>🎯 Mecánicas de combate con turnos</li>
+                        <li>👤 Entrenadores con equipos de Pokémon</li>
+                        <li>📊 Arquitectura completa y escalable</li>
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">¿Por qué OOP?</h3>
+                    <div class="highlight-box">
+                        <p><strong>La Programación Orientada a Objetos</strong> te permite modelar el mundo real en código. En lugar de escribir funciones sueltas, organizas tu código en "objetos" que tienen características (atributos) y comportamientos (métodos).</p>
+                    </div>
+                    <p style="margin-top: 16px; line-height: 1.6;">Es perfecta para proyectos como un simulador de Pokémon porque cada Pokémon es naturalmente un objeto con nombre, tipo, HP, movimientos, etc.</p>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">¿Qué aprenderás?</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px;">
+                        <div class="concept-card">
+                            <div class="concept-name">Clases y Objetos</div>
+                            <div class="concept-definition">Cómo crear blueprints y instancias</div>
+                        </div>
+                        <div class="concept-card">
+                            <div class="concept-name">Herencia</div>
+                            <div class="concept-definition">Reutilizar código entre clases</div>
+                        </div>
+                        <div class="concept-card">
+                            <div class="concept-name">Encapsulación</div>
+                            <div class="concept-definition">Proteger datos sensibles</div>
+                        </div>
+                        <div class="concept-card">
+                            <div class="concept-name">Composición</div>
+                            <div class="concept-definition">Combinar objetos complejos</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="nav-btn" onclick="nextModule()">Comenzar el Módulo 1 →</button>
+                </div>
+            </div>
+
+            <!-- Module 1: Conceptos Básicos -->
+            <div class="module-content" data-module="1">
+                <div class="module-header">
+                    <h2 class="module-title">Conceptos Básicos de OOP</h2>
+                    <p class="module-description">Entiende qué es una clase, qué es un objeto, y cómo se relacionan</p>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Los 4 Pilares de OOP</h3>
+                    
+                    <div class="concept-card">
+                        <div class="concept-name">🏗️ Clase</div>
+                        <div class="concept-definition">Es un blueprint o plantilla que define la estructura de objetos. Piensa en ella como un molde para galletas.</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">🎯 Objeto</div>
+                        <div class="concept-definition">Es una instancia específica de una clase con sus propios datos. Las galletas que salen del molde son los objetos.</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">📋 Atributo</div>
+                        <div class="concept-definition">Son las características o datos que tiene un objeto. Por ejemplo: nombre, color, tamaño.</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">⚡ Método</div>
+                        <div class="concept-definition">Son las acciones o comportamientos que puede hacer un objeto. Por ejemplo: caminar(), atacar(), comer().</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Ejemplo con Pokémon</h3>
+                    <div class="highlight-box">
+                        <p><strong>Clase:</strong> Pokemon (el concepto general)</p>
+                        <p><strong>Objetos:</strong> Pikachu, Charizard, Bulbasaur (Pokémon específicos)</p>
+                        <p><strong>Atributos:</strong> nombre, tipo, HP, nivel</p>
+                        <p><strong>Métodos:</strong> atacar(), defenderse(), evolucionar()</p>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Analogía del Mundo Real</h3>
+                    <p style="line-height: 1.6;">Imagina que estás en una fábrica de Pokémon:</p>
+                    <ul style="margin: 16px 0 0 20px; line-height: 1.8;">
+                        <li>La <strong>clase</strong> es el plano de diseño que dice "todo Pokémon debe tener nombre, tipo y HP"</li>
+                        <li>Cuando creas un <strong>objeto</strong>, estás fabricando un Pokémon específico usando ese plano</li>
+                        <li>Los <strong>atributos</strong> son las características únicas de cada Pokémon que fabricas</li>
+                        <li>Los <strong>métodos</strong> son las habilidades que programas en cada Pokémon</li>
+                    </ul>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
+                    <button class="nav-btn" onclick="nextModule()">Siguiente →</button>
+                </div>
+            </div>
+
+            <!-- Module 2: Tu Primera Clase -->
+            <div class="module-content" data-module="2">
+                <div class="module-header">
+                    <h2 class="module-title">Tu Primera Clase: Pokemon</h2>
+                    <p class="module-description">Vamos a crear nuestra primera clase para representar un Pokémon</p>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Estructura de una Clase</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.6;">Una clase en Python se define con la palabra clave <code style="background: var(--color-secondary); padding: 2px 6px; border-radius: 4px;">class</code>. Veamos cómo crear nuestra clase Pokemon:</p>
+                    
+                    <div class="code-section">
+                        <div class="code-header">
+                            <h4>Código Python</h4>
+                            <button class="toggle-code-btn" onclick="toggleCode(2)">Mostrar Código</button>
+                        </div>
+                        <div class="code-block" id="code-2">
+                            <pre><span class="keyword">class</span> <span class="class-name">Pokemon</span>:
+    <span class="comment"># Constructor - se ejecuta cuando creamos un objeto</span>
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, nombre, tipo, hp_max):
+        <span class="keyword">self</span>.nombre = nombre
+        <span class="keyword">self</span>.tipo = tipo
+        <span class="keyword">self</span>.hp_max = hp_max
+        <span class="keyword">self</span>.hp_actual = hp_max
+
+<span class="comment"># Crear un objeto (instancia) de la clase</span>
+pikachu = Pokemon(<span class="string">"Pikachu"</span>, <span class="string">"Eléctrico"</span>, 35)
+<span class="function">print</span>(pikachu.nombre)  <span class="comment"># Salida: Pikachu</span></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Desglosando el Código</h3>
+                    
+                    <div class="concept-card">
+                        <div class="concept-name">class Pokemon:</div>
+                        <div class="concept-definition">Define una nueva clase llamada Pokemon. Es como decir "voy a crear un nuevo tipo de cosa".</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">def __init__(self, ...):</div>
+                        <div class="concept-definition">El constructor o inicializador. Se ejecuta automáticamente cuando creas un objeto. Es donde defines los atributos iniciales.</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">self</div>
+                        <div class="concept-definition">Representa la instancia actual del objeto. Es como decir "este Pokémon específico".</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">self.nombre = nombre</div>
+                        <div class="concept-definition">Crea un atributo para el objeto. Cada Pokémon tendrá su propio nombre.</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">¿Qué está pasando?</h3>
+                    <div class="highlight-box">
+                        <p style="margin-bottom: 12px;"><strong>Paso 1:</strong> Definimos la clase Pokemon con sus atributos básicos</p>
+                        <p style="margin-bottom: 12px;"><strong>Paso 2:</strong> El <code>__init__</code> recibe los parámetros y los asigna como atributos</p>
+                        <p style="margin-bottom: 12px;"><strong>Paso 3:</strong> Creamos un objeto llamado <code>pikachu</code> con valores específicos</p>
+                        <p><strong>Paso 4:</strong> Ahora podemos acceder a los atributos con <code>pikachu.nombre</code></p>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
+                    <button class="nav-btn" onclick="nextModule()">Siguiente →</button>
+                </div>
+            </div>
+
+            <!-- Module 3: Atributos y Métodos -->
+            <div class="module-content" data-module="3">
+                <div class="module-header">
+                    <h2 class="module-title">Atributos y Métodos</h2>
+                    <p class="module-description">Aprende a agregar métodos (acciones) a tus clases</p>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Agregando Comportamiento</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.6;">Los métodos son funciones que pertenecen a una clase. Definen qué puede hacer un objeto:</p>
+                    
+                    <div class="code-section">
+                        <div class="code-header">
+                            <h4>Código Python</h4>
+                            <button class="toggle-code-btn" onclick="toggleCode(3)">Mostrar Código</button>
+                        </div>
+                        <div class="code-block" id="code-3">
+                            <pre><span class="keyword">class</span> <span class="class-name">Pokemon</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, nombre, tipo, hp_max):
+        <span class="keyword">self</span>.nombre = nombre
+        <span class="keyword">self</span>.tipo = tipo
+        <span class="keyword">self</span>.hp_max = hp_max
+        <span class="keyword">self</span>.hp_actual = hp_max
+    
+    <span class="comment"># Método: una acción que puede hacer el Pokemon</span>
+    <span class="keyword">def</span> <span class="function">recibir_danio</span>(<span class="keyword">self</span>, danio):
+        <span class="keyword">self</span>.hp_actual = <span class="function">max</span>(0, <span class="keyword">self</span>.hp_actual - danio)
+        <span class="keyword">return</span> <span class="string">f"<span class="keyword">{self.nombre}</span> recibió <span class="keyword">{danio}</span> de daño"</span>
+    
+    <span class="keyword">def</span> <span class="function">esta_vivo</span>(<span class="keyword">self</span>):
+        <span class="keyword">return</span> <span class="keyword">self</span>.hp_actual &gt; 0
+
+pikachu = Pokemon(<span class="string">"Pikachu"</span>, <span class="string">"Eléctrico"</span>, 35)
+<span class="function">print</span>(pikachu.recibir_danio(10))  <span class="comment"># Pikachu recibió 10 de daño</span>
+<span class="function">print</span>(pikachu.esta_vivo())  <span class="comment"># True</span></pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Tipos de Métodos</h3>
+                    
+                    <div class="concept-card">
+                        <div class="concept-name">Métodos de Instancia</div>
+                        <div class="concept-definition">Trabajan con datos del objeto específico. Siempre reciben <code>self</code> como primer parámetro. Ejemplo: <code>recibir_danio()</code></div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Métodos que Modifican el Estado</div>
+                        <div class="concept-definition"><code>recibir_danio()</code> cambia el valor de <code>hp_actual</code>. El objeto se modifica.</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Métodos que Consultan</div>
+                        <div class="concept-definition"><code>esta_vivo()</code> solo lee datos sin modificar nada. Devuelve información.</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">¿Por qué usar métodos?</h3>
+                    <div class="highlight-box">
+                        <p style="margin-bottom: 12px;"><strong>Encapsulación:</strong> El método <code>recibir_danio()</code> se asegura de que el HP nunca sea negativo usando <code>max(0, ...)</code></p>
+                        <p style="margin-bottom: 12px;"><strong>Reutilización:</strong> Puedes llamar <code>pikachu.recibir_danio(10)</code> cuantas veces necesites</p>
+                        <p><strong>Claridad:</strong> El código es más legible: <code>pikachu.esta_vivo()</code> vs <code>pikachu.hp_actual &gt; 0</code></p>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
+                    <button class="nav-btn" onclick="nextModule()">Siguiente →</button>
+                </div>
+            </div>
+
+            <!-- Module 4: Herencia -->
+            <div class="module-content" data-module="4">
+                <div class="module-header">
+                    <h2 class="module-title">Herencia y Polimorfismo</h2>
+                    <p class="module-description">Crea clases que heredan de otras clases</p>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">¿Qué es la Herencia?</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.6;">La herencia permite crear una clase nueva basada en una existente. La clase nueva (hija) obtiene todos los atributos y métodos de la clase original (padre).</p>
+                    
+                    <div class="code-section">
+                        <div class="code-header">
+                            <h4>Código Python</h4>
+                            <button class="toggle-code-btn" onclick="toggleCode(4)">Mostrar Código</button>
+                        </div>
+                        <div class="code-block" id="code-4">
+                            <pre><span class="keyword">class</span> <span class="class-name">Movimiento</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, nombre, poder, tipo):
+        <span class="keyword">self</span>.nombre = nombre
+        <span class="keyword">self</span>.poder = poder
+        <span class="keyword">self</span>.tipo = tipo
+
+<span class="keyword">class</span> <span class="class-name">PokemonCombate</span>(Pokemon):
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, nombre, tipo, hp_max, movimientos=[]):
+        <span class="function">super</span>().<span class="function">__init__</span>(nombre, tipo, hp_max)
+        <span class="keyword">self</span>.movimientos = movimientos
+    
+    <span class="keyword">def</span> <span class="function">atacar</span>(<span class="keyword">self</span>, movimiento):
+        <span class="keyword">return</span> <span class="string">f"<span class="keyword">{self.nombre}</span> usa <span class="keyword">{movimiento.nombre}</span>!"</span>
+
+rayo = Movimiento(<span class="string">"Rayo"</span>, 90, <span class="string">"Eléctrico"</span>)
+pikachu = PokemonCombate(<span class="string">"Pikachu"</span>, <span class="string">"Eléctrico"</span>, 35, [rayo])
+<span class="function">print</span>(pikachu.atacar(rayo))</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Conceptos Clave</h3>
+                    
+                    <div class="concept-card">
+                        <div class="concept-name">class PokemonCombate(Pokemon):</div>
+                        <div class="concept-definition">PokemonCombate hereda de Pokemon. Obtiene automáticamente todos sus atributos y métodos.</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">super().__init__(...)</div>
+                        <div class="concept-definition">Llama al constructor de la clase padre (Pokemon) para inicializar los atributos básicos.</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Extensión de Funcionalidad</div>
+                        <div class="concept-definition">PokemonCombate agrega nuevos atributos (movimientos) y métodos (atacar) sin modificar Pokemon.</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Ventajas de la Herencia</h3>
+                    <div class="highlight-box">
+                        <p style="margin-bottom: 12px;"><strong>Reutilización de Código:</strong> No necesitas reescribir nombre, tipo, hp_max</p>
+                        <p style="margin-bottom: 12px;"><strong>Especialización:</strong> PokemonCombate es un Pokemon con capacidades extra</p>
+                        <p><strong>Mantenibilidad:</strong> Si cambias Pokemon, PokemonCombate se actualiza automáticamente</p>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
+                    <button class="nav-btn" onclick="nextModule()">Siguiente →</button>
+                </div>
+            </div>
+
+            <!-- Module 5: Encapsulación -->
+            <div class="module-content" data-module="5">
+                <div class="module-header">
+                    <h2 class="module-title">Encapsulación</h2>
+                    <p class="module-description">Protege los datos de tu clase con atributos privados</p>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">¿Por qué Encapsular?</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.6;">La encapsulación esconde los detalles internos de una clase y solo expone lo necesario. Esto previene errores y hace tu código más seguro.</p>
+                    
+                    <div class="code-section">
+                        <div class="code-header">
+                            <h4>Código Python</h4>
+                            <button class="toggle-code-btn" onclick="toggleCode(5)">Mostrar Código</button>
+                        </div>
+                        <div class="code-block" id="code-5">
+                            <pre><span class="keyword">class</span> <span class="class-name">Pokemon</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, nombre, tipo, hp_max):
+        <span class="keyword">self</span>.nombre = nombre
+        <span class="keyword">self</span>.tipo = tipo
+        <span class="keyword">self</span>._hp_max = hp_max  <span class="comment"># _ indica que es protegido</span>
+        <span class="keyword">self</span>.__hp_actual = hp_max  <span class="comment"># __ hace que sea privado</span>
+    
+    <span class="comment"># Property: permite leer hp_actual de forma controlada</span>
+    <span class="keyword">@property</span>
+    <span class="keyword">def</span> <span class="function">hp</span>(<span class="keyword">self</span>):
+        <span class="keyword">return</span> <span class="keyword">self</span>.__hp_actual
+    
+    <span class="comment"># Setter: permite modificar hp_actual con validación</span>
+    <span class="keyword">@hp.setter</span>
+    <span class="keyword">def</span> <span class="function">hp</span>(<span class="keyword">self</span>, valor):
+        <span class="keyword">if</span> valor &lt; 0:
+            <span class="keyword">self</span>.__hp_actual = 0
+        <span class="keyword">elif</span> valor &gt; <span class="keyword">self</span>._hp_max:
+            <span class="keyword">self</span>.__hp_actual = <span class="keyword">self</span>._hp_max
+        <span class="keyword">else</span>:
+            <span class="keyword">self</span>.__hp_actual = valor</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Niveles de Acceso</h3>
+                    
+                    <div class="concept-card">
+                        <div class="concept-name">Público: nombre</div>
+                        <div class="concept-definition">Se puede acceder desde cualquier lugar. Uso: <code>pokemon.nombre</code></div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Protegido: _hp_max</div>
+                        <div class="concept-definition">Convencion para indicar "solo usar internamente". Python no lo restringe técnicamente.</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Privado: __hp_actual</div>
+                        <div class="concept-definition">Python modifica el nombre para dificultar el acceso externo. Verdaderamente protegido.</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">@property y @setter</div>
+                        <div class="concept-definition">Permiten acceder a atributos privados con validación. Parece un atributo pero es un método.</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Beneficios Prácticos</h3>
+                    <div class="highlight-box">
+                        <p style="margin-bottom: 12px;"><strong>Validación:</strong> El setter se asegura que el HP nunca sea negativo o mayor al máximo</p>
+                        <p style="margin-bottom: 12px;"><strong>Control:</strong> Puedes cambiar la implementación interna sin afectar el código externo</p>
+                        <p><strong>Ejemplo:</strong> <code>pikachu.hp = -10</code> se convierte automáticamente en <code>pikachu.hp = 0</code></p>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
+                    <button class="nav-btn" onclick="nextModule()">Siguiente →</button>
+                </div>
+            </div>
+
+            <!-- Module 6: Composición -->
+            <div class="module-content" data-module="6">
+                <div class="module-header">
+                    <h2 class="module-title">Composición</h2>
+                    <p class="module-description">Combina múltiples objetos para crear estructuras complejas</p>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Objetos Dentro de Objetos</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.6;">La composición significa que un objeto contiene otros objetos. Es una relación "tiene un" (has-a) en lugar de "es un" (is-a) como la herencia.</p>
+                    
+                    <div class="code-section">
+                        <div class="code-header">
+                            <h4>Código Python</h4>
+                            <button class="toggle-code-btn" onclick="toggleCode(6)">Mostrar Código</button>
+                        </div>
+                        <div class="code-block" id="code-6">
+                            <pre><span class="keyword">class</span> <span class="class-name">Pokemon</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, nombre, tipo, hp_max, movimientos=[]):
+        <span class="keyword">self</span>.nombre = nombre
+        <span class="keyword">self</span>.movimientos = movimientos  <span class="comment"># Pokemon TIENE movimientos</span>
+
+<span class="keyword">class</span> <span class="class-name">Entrenador</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, nombre, equipo=[]):
+        <span class="keyword">self</span>.nombre = nombre
+        <span class="keyword">self</span>.equipo = equipo  <span class="comment"># Entrenador TIENE Pokemon</span>
+    
+    <span class="keyword">def</span> <span class="function">agregar_pokemon</span>(<span class="keyword">self</span>, pokemon):
+        <span class="keyword">self</span>.equipo.append(pokemon)
+    
+    <span class="keyword">def</span> <span class="function">ver_equipo</span>(<span class="keyword">self</span>):
+        <span class="keyword">for</span> pokemon <span class="keyword">in</span> <span class="keyword">self</span>.equipo:
+            <span class="function">print</span>(<span class="string">f"- <span class="keyword">{pokemon.nombre}</span> (<span class="keyword">{pokemon.tipo}</span>)"</span>)
+
+ash = Entrenador(<span class="string">"Ash"</span>)
+pikachu = Pokemon(<span class="string">"Pikachu"</span>, <span class="string">"Eléctrico"</span>, 35)
+ash.agregar_pokemon(pikachu)
+ash.ver_equipo()</pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Composición vs Herencia</h3>
+                    
+                    <div class="concept-card">
+                        <div class="concept-name">Herencia (is-a)</div>
+                        <div class="concept-definition">PokemonCombate ES UN Pokemon. Usa cuando hay una relación de especialización.</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Composición (has-a)</div>
+                        <div class="concept-definition">Pokemon TIENE movimientos. Entrenador TIENE Pokémon. Usa cuando combinas objetos independientes.</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Flexibilidad</div>
+                        <div class="concept-definition">Con composición puedes cambiar los movimientos de un Pokémon o el equipo de un Entrenador fácilmente.</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Ejemplo del Simulador</h3>
+                    <div class="highlight-box">
+                        <p style="margin-bottom: 12px;"><strong>Pokemon</strong> contiene una lista de objetos <strong>Movimiento</strong></p>
+                        <p style="margin-bottom: 12px;"><strong>Entrenador</strong> contiene una lista de objetos <strong>Pokemon</strong></p>
+                        <p style="margin-bottom: 12px;"><strong>Batalla</strong> contiene dos objetos <strong>Pokemon</strong> o <strong>Entrenador</strong></p>
+                        <p>Cada objeto mantiene su independencia pero trabajan juntos para crear el sistema completo.</p>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
+                    <button class="nav-btn" onclick="nextModule()">Siguiente →</button>
+                </div>
+            </div>
+
+            <!-- Module 7: Arquitectura -->
+            <div class="module-content" data-module="7">
+                <div class="module-header">
+                    <h2 class="module-title">Arquitectura del Sistema</h2>
+                    <p class="module-description">Planifica cómo se relacionan todas las clases</p>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Diseño del Simulador</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.6;">Antes de escribir código, es importante planificar la arquitectura. Veamos todas las clases que necesitamos y cómo se relacionan:</p>
+                    
+                    <div class="architecture-section">
+                        <pre class="architecture-text"><strong>Pokemon</strong> (base)
+├── Atributos: nombre, tipo, hp_max, hp_actual, movimientos
+├── Métodos: recibir_danio(), atacar(), esta_vivo()
+
+<strong>Movimiento</strong>
+├── Atributos: nombre, poder, tipo, precision
+├── Métodos: calcular_danio()
+
+<strong>Tipo</strong>
+├── Atributos: nombre, ventajas, desventajas
+├── Métodos: calcular_efectividad()
+
+<strong>Batalla</strong>
+├── Atributos: pokemon1, pokemon2, turno, historial
+├── Métodos: ejecutar_turno(), finalizar(), obtener_ganador()
+
+<strong>Entrenador</strong>
+├── Atributos: nombre, equipo (lista Pokemon)
+├── Métodos: cambiar_pokemon(), ver_equipo()</pre>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Diagrama de Arquitectura</h3>
+                    <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/bb99207bbdcc251986aad3be232ac821/957aa0aa-5604-4d44-a278-f8a33a39cb02/b2e5758f.png" alt="Arquitectura del Simulador" class="architecture-image">
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Relaciones Entre Clases</h3>
+                    
+                    <div class="concept-card">
+                        <div class="concept-name">Pokemon → Movimiento (Composición)</div>
+                        <div class="concept-definition">Un Pokemon contiene múltiples Movimientos en su lista</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Pokemon → Tipo (Asociación)</div>
+                        <div class="concept-definition">Un Pokemon tiene un tipo que define ventajas/desventajas</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Entrenador → Pokemon (Composición)</div>
+                        <div class="concept-definition">Un Entrenador tiene un equipo de hasta 6 Pokemon</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Batalla → Pokemon (Asociación)</div>
+                        <div class="concept-definition">Una Batalla conecta dos Pokemon/Entrenadores que combaten</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Flujo de Batalla</h3>
+                    <div class="highlight-box">
+                        <p style="margin-bottom: 12px;"><strong>1.</strong> Se crea una Batalla con dos Pokemon</p>
+                        <p style="margin-bottom: 12px;"><strong>2.</strong> En cada turno, un Pokemon usa un Movimiento</p>
+                        <p style="margin-bottom: 12px;"><strong>3.</strong> Se calcula el daño basado en poder, tipo y efectividad</p>
+                        <p style="margin-bottom: 12px;"><strong>4.</strong> El Pokemon rival recibe el daño</p>
+                        <p><strong>5.</strong> Se repite hasta que un Pokemon ya no está vivo</p>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
+                    <button class="nav-btn" onclick="nextModule()">Siguiente →</button>
+                </div>
+            </div>
+
+            <!-- Module 8: Proyecto Final -->
+            <div class="module-content" data-module="8">
+                <div class="module-header">
+                    <h2 class="module-title">Proyecto Final: Battle Simulator</h2>
+                    <p class="module-description">¡Hora de juntar todo y crear tu simulador!</p>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Estructura del Proyecto GitHub</h3>
+                    <div class="architecture-section">
+                        <pre class="architecture-text">pokemon-battle-simulator/
+├── README.md                 <span class="comment"># Descripción del proyecto</span>
+├── requirements.txt          <span class="comment"># Dependencias (si las hay)</span>
+├── main.py                   <span class="comment"># Archivo principal para ejecutar</span>
+├── src/
+│   ├── __init__.py
+│   ├── pokemon.py           <span class="comment"># Clase Pokemon</span>
+│   ├── movimiento.py        <span class="comment"># Clase Movimiento</span>
+│   ├── tipo.py              <span class="comment"># Clase Tipo</span>
+│   ├── batalla.py           <span class="comment"># Clase Batalla</span>
+│   └── entrenador.py        <span class="comment"># Clase Entrenador</span>
+├── data/
+│   ├── pokemon.json         <span class="comment"># Datos de Pokemon</span>
+│   └── movimientos.json     <span class="comment"># Datos de movimientos</span>
+└── tests/
+    ├── test_pokemon.py
+    └── test_batalla.py</pre>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Pasos para Implementar</h3>
+                    
+                    <div class="concept-card">
+                        <div class="concept-name">Paso 1: Clases Básicas</div>
+                        <div class="concept-definition">Implementa Pokemon, Movimiento y Tipo con sus atributos y métodos básicos</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Paso 2: Sistema de Tipos</div>
+                        <div class="concept-definition">Crea el sistema de ventajas/desventajas (Fuego &gt; Planta, Agua &gt; Fuego, etc.)</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Paso 3: Mecánicas de Combate</div>
+                        <div class="concept-definition">Implementa cálculo de daño, precisión, efectos críticos</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Paso 4: Clase Batalla</div>
+                        <div class="concept-definition">Sistema de turnos, selección de movimientos, condiciones de victoria</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Paso 5: Interfaz de Usuario</div>
+                        <div class="concept-definition">Crea un menú en consola para jugar batallas</div>
+                    </div>
+
+                    <div class="concept-card">
+                        <div class="concept-name">Paso 6: Tests y Documentación</div>
+                        <div class="concept-definition">Escribe tests unitarios y documenta tu código</div>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h3 class="section-title">Características para Agregar</h3>
+                    <ul style="margin-left: 20px; line-height: 2;">
+                        <li>⚔️ Sistema de estadísticas (ataque, defensa, velocidad)</li>
+                        <li>🎯 Probabilidad de golpe crítico</li>
+                        <li>✨ Efectos de estado (parálisis, envenenamiento, etc.)</li>
+                        <li>🔄 Sistema de evolución de Pokemon</li>
+                        <li>👥 Batallas por equipos (múltiples Pokemon)</li>
+                        <li>💾 Guardar y cargar partidas</li>
+                        <li>📊 Estadísticas de batallas y historial</li>
+                        <li>🎨 Interfaz gráfica con pygame o tkinter</li>
+                    </ul>
+                </div>
+
+                <div class="final-summary">
+                    <h3>🎉 ¡Felicidades!</h3>
+                    <p>Has completado el curso de OOP con Python. Ahora tienes las herramientas para crear tu simulador de combate Pokémon y subirlo a GitHub.</p>
+                    <a href="https://github.com" target="_blank" class="github-link">📦 Sube tu proyecto a GitHub</a>
+                </div>
+
+                <div class="section" style="margin-top: 24px;">
+                    <h3 class="section-title">Recursos Adicionales</h3>
+                    <div class="highlight-box">
+                        <p style="margin-bottom: 12px;"><strong>Documentación:</strong> <a href="https://docs.python.org/3/tutorial/classes.html" target="_blank">Python Classes Tutorial</a></p>
+                        <p style="margin-bottom: 12px;"><strong>Inspiración:</strong> <a href="https://github.com/topics/pokemon-battle" target="_blank">Proyectos similares en GitHub</a></p>
+                        <p><strong>Comunidad:</strong> Comparte tu proyecto en r/learnpython o r/python</p>
+                    </div>
+                </div>
+
+                <div class="navigation-buttons">
+                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
+                    <button class="nav-btn" onclick="goToModule(0)">Volver al Inicio</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Module data
+        const modules = [
+            { title: "Introducción", number: 0 },
+            { title: "Conceptos Básicos", number: 1 },
+            { title: "Primera Clase", number: 2 },
+            { title: "Atributos y Métodos", number: 3 },
+            { title: "Herencia", number: 4 },
+            { title: "Encapsulación", number: 5 },
+            { title: "Composición", number: 6 },
+            { title: "Arquitectura", number: 7 },
+            { title: "Proyecto Final", number: 8 }
+        ];
+
+        let currentModule = 0;
+
+        // Initialize navigation
+        function initNavigation() {
+            const nav = document.getElementById('moduleNav');
+            modules.forEach((module, index) => {
+                const li = document.createElement('li');
+                li.className = 'module-nav-item';
+                
+                const button = document.createElement('button');
+                button.className = `module-nav-button ${index === 0 ? 'active' : ''}`;
+                button.onclick = () => goToModule(index);
+                button.innerHTML = `
+                    <span class="module-number">${index}</span>
+                    <span>${module.title}</span>
+                `;
+                
+                li.appendChild(button);
+                nav.appendChild(li);
+            });
+            
+            updateProgress();
+        }
+
+        // Navigate to specific module
+        function goToModule(moduleIndex) {
+            // Hide current module
+            const currentContent = document.querySelector('.module-content.active');
+            if (currentContent) {
+                currentContent.classList.remove('active');
+            }
+            
+            // Remove active class from nav buttons
+            document.querySelectorAll('.module-nav-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Show new module
+            const newContent = document.querySelector(`[data-module="${moduleIndex}"]`);
+            if (newContent) {
+                newContent.classList.add('active');
+                currentModule = moduleIndex;
+                
+                // Add active class to nav button
+                const navButtons = document.querySelectorAll('.module-nav-button');
+                if (navButtons[moduleIndex]) {
+                    navButtons[moduleIndex].classList.add('active');
+                }
+                
+                updateProgress();
+                
+                // Scroll to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Next module
+        function nextModule() {
+            if (currentModule < modules.length - 1) {
+                goToModule(currentModule + 1);
+            }
+        }
+
+        // Previous module
+        function previousModule() {
+            if (currentModule > 0) {
+                goToModule(currentModule - 1);
+            }
+        }
+
+        // Update progress bar
+        function updateProgress() {
+            const progress = ((currentModule) / (modules.length - 1)) * 100;
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        // Toggle code visibility
+        function toggleCode(moduleNumber) {
+            const codeBlock = document.getElementById(`code-${moduleNumber}`);
+            const button = event.target;
+            
+            if (codeBlock.classList.contains('visible')) {
+                codeBlock.classList.remove('visible');
+                button.textContent = 'Mostrar Código';
+            } else {
+                codeBlock.classList.add('visible');
+                button.textContent = 'Ocultar Código';
+            }
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            initNavigation();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight') {
+                nextModule();
+            } else if (e.key === 'ArrowLeft') {
+                previousModule();
+            }
+        });
+    </script>
+</body>
+</html>
