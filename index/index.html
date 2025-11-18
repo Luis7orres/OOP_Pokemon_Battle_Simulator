@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aprende OOP con Python - Simulador Pokémon</title>
+    <title>Learn OOP with Python - Pokémon Simulator</title>
     <style>
         /* Design System CSS */
         :root {
@@ -475,8 +475,8 @@
     <div class="app-container">
         <!-- Sidebar Navigation -->
         <aside class="sidebar">
-            <h1>🐍 OOP con Python</h1>
-            <p class="sidebar-subtitle">Aprende programación orientada a objetos creando un simulador de combate Pokémon</p>
+            <h1>🐍 OOP with Python</h1>
+            <p class="sidebar-subtitle">Learn object-oriented programming by creating a Pokémon battle simulator</p>
             <div class="progress-bar">
                 <div class="progress-fill" id="progressBar"></div>
             </div>
@@ -490,357 +490,358 @@
             <!-- Module 0: Introduction -->
             <div class="module-content active" data-module="0">
                 <div class="module-header">
-                    <h2 class="module-title">¡Bienvenido a tu Aventura OOP! 🚀</h2>
-                    <p class="module-description">Vamos a aprender Programación Orientada a Objetos (OOP) en Python de forma práctica y divertida</p>
+                    <h2 class="module-title">Welcome to Your OOP Adventure! 🚀</h2>
+                    <p class="module-description">We're going to learn Object-Oriented Programming (OOP) in Python in a practical and fun way</p>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">¿Qué vamos a construir?</h3>
-                    <p style="margin-bottom: 16px; line-height: 1.6;">Un <strong>simulador de combate Pokémon</strong> completo que incluirá:</p>
+                    <h3 class="section-title">What are we going to build?</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.6;">A complete <strong>Pokémon battle simulator</strong> that will include:</p>
                     <ul style="margin-left: 20px; line-height: 1.8;">
-                        <li>✨ Clases para Pokémon con atributos y métodos</li>
-                        <li>⚔️ Sistema de movimientos y tipos</li>
-                        <li>🎯 Mecánicas de combate con turnos</li>
-                        <li>👤 Entrenadores con equipos de Pokémon</li>
-                        <li>📊 Arquitectura completa y escalable</li>
+                        <li>✨ Classes for Pokémon with attributes and methods</li>
+                        <li>⚔️ Movement and type system</li>
+                        <li>🎯 Turn-based combat mechanics</li>
+                        <li>👤 Trainers with Pokémon teams</li>
+                        <li>📊 Complete and scalable architecture</li>
                     </ul>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">¿Por qué OOP?</h3>
+                    <h3 class="section-title">Why OOP?</h3>
                     <div class="highlight-box">
-                        <p><strong>La Programación Orientada a Objetos</strong> te permite modelar el mundo real en código. En lugar de escribir funciones sueltas, organizas tu código en "objetos" que tienen características (atributos) y comportamientos (métodos).</p>
+                        <p><strong>Object-Oriented Programming</strong> allows you to model the real world in code. Instead of writing loose functions, you organize your code into "objects" that have characteristics (attributes) and behaviors (methods).</p>
                     </div>
-                    <p style="margin-top: 16px; line-height: 1.6;">Es perfecta para proyectos como un simulador de Pokémon porque cada Pokémon es naturalmente un objeto con nombre, tipo, HP, movimientos, etc.</p>
+                    <p style="margin-top: 16px; line-height: 1.6;">It's perfect for projects like a Pokémon simulator because each Pokémon is naturally an object with name, type, HP, movements, etc.</p>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">¿Qué aprenderás?</h3>
+                    <h3 class="section-title">What will you learn?</h3>
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 16px;">
                         <div class="concept-card">
-                            <div class="concept-name">Clases y Objetos</div>
-                            <div class="concept-definition">Cómo crear blueprints y instancias</div>
+                            <div class="concept-name">Classes &amp; Objects</div>
+                            <div class="concept-definition">How to create blueprints and instances</div>
                         </div>
                         <div class="concept-card">
-                            <div class="concept-name">Herencia</div>
-                            <div class="concept-definition">Reutilizar código entre clases</div>
+                            <div class="concept-name">Inheritance</div>
+                            <div class="concept-definition">Reuse code between classes</div>
                         </div>
                         <div class="concept-card">
-                            <div class="concept-name">Encapsulación</div>
-                            <div class="concept-definition">Proteger datos sensibles</div>
+                            <div class="concept-name">Encapsulation</div>
+                            <div class="concept-definition">Protect sensitive data</div>
                         </div>
                         <div class="concept-card">
-                            <div class="concept-name">Composición</div>
-                            <div class="concept-definition">Combinar objetos complejos</div>
+                            <div class="concept-name">Composition</div>
+                            <div class="concept-definition">Combine complex objects</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="navigation-buttons">
-                    <button class="nav-btn" onclick="nextModule()">Comenzar el Módulo 1 →</button>
+                    <button class="nav-btn" onclick="nextModule()">Start Module 1 →</button>
                 </div>
             </div>
 
             <!-- Module 1: Conceptos Básicos -->
             <div class="module-content" data-module="1">
                 <div class="module-header">
-                    <h2 class="module-title">Conceptos Básicos de OOP</h2>
-                    <p class="module-description">Entiende qué es una clase, qué es un objeto, y cómo se relacionan</p>
+                    <h2 class="module-title">OOP Basics</h2>
+                    <p class="module-description">Understand what a class is, what an object is, and how they relate</p>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Los 4 Pilares de OOP</h3>
+                    <h3 class="section-title">The 4 Pillars of OOP</h3>
                     
                     <div class="concept-card">
-                        <div class="concept-name">🏗️ Clase</div>
-                        <div class="concept-definition">Es un blueprint o plantilla que define la estructura de objetos. Piensa en ella como un molde para galletas.</div>
+                        <div class="concept-name">🏗️ Class</div>
+                        <div class="concept-definition">A blueprint or template that defines the structure of objects. Think of it as a cookie cutter.</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">🎯 Objeto</div>
-                        <div class="concept-definition">Es una instancia específica de una clase con sus propios datos. Las galletas que salen del molde son los objetos.</div>
+                        <div class="concept-name">🎯 Object</div>
+                        <div class="concept-definition">A specific instance of a class with its own data. The cookies that come out of the mold are the objects.</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">📋 Atributo</div>
-                        <div class="concept-definition">Son las características o datos que tiene un objeto. Por ejemplo: nombre, color, tamaño.</div>
+                        <div class="concept-name">📋 Attribute</div>
+                        <div class="concept-definition">Characteristics or data that an object has. For example: name, color, size.</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">⚡ Método</div>
-                        <div class="concept-definition">Son las acciones o comportamientos que puede hacer un objeto. Por ejemplo: caminar(), atacar(), comer().</div>
+                        <div class="concept-name">⚡ Method</div>
+                        <div class="concept-definition">Actions or behaviors that an object can perform. For example: walk(), attack(), eat().</div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Ejemplo con Pokémon</h3>
+                    <h3 class="section-title">Example with Pokémon</h3>
                     <div class="highlight-box">
-                        <p><strong>Clase:</strong> Pokemon (el concepto general)</p>
-                        <p><strong>Objetos:</strong> Pikachu, Charizard, Bulbasaur (Pokémon específicos)</p>
-                        <p><strong>Atributos:</strong> nombre, tipo, HP, nivel</p>
-                        <p><strong>Métodos:</strong> atacar(), defenderse(), evolucionar()</p>
+                        <p><strong>Class:</strong> Pokemon (the general concept)</p>
+                        <p><strong>Objects:</strong> Pikachu, Charizard, Bulbasaur (specific Pokémon)</p>
+                        <p><strong>Attributes:</strong> name, type, HP, level</p>
+                        <p><strong>Methods:</strong> attack(), defend(), evolve()</p>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Analogía del Mundo Real</h3>
-                    <p style="line-height: 1.6;">Imagina que estás en una fábrica de Pokémon:</p>
+                    <h3 class="section-title">Real World Analogy</h3>
+                    <p style="line-height: 1.6;">Imagine you're in a Pokémon factory:</p>
                     <ul style="margin: 16px 0 0 20px; line-height: 1.8;">
-                        <li>La <strong>clase</strong> es el plano de diseño que dice "todo Pokémon debe tener nombre, tipo y HP"</li>
-                        <li>Cuando creas un <strong>objeto</strong>, estás fabricando un Pokémon específico usando ese plano</li>
-                        <li>Los <strong>atributos</strong> son las características únicas de cada Pokémon que fabricas</li>
-                        <li>Los <strong>métodos</strong> son las habilidades que programas en cada Pokémon</li>
+                        <li>The <strong>class</strong> is the blueprint that says "every Pokémon must have a name, type, and HP"</li>
+                        <li>When you create an <strong>object</strong>, you're manufacturing a specific Pokémon using that blueprint</li>
+                        <li>The <strong>attributes</strong> are the unique characteristics of each Pokémon you manufacture</li>
+                        <li>The <strong>methods</strong> are the abilities you program into each Pokémon</li>
                     </ul>
                 </div>
 
                 <div class="navigation-buttons">
-                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
-                    <button class="nav-btn" onclick="nextModule()">Siguiente →</button>
+                    <button class="nav-btn secondary" onclick="previousModule()">← Previous</button>
+                    <button class="nav-btn" onclick="nextModule()">Next →</button>
                 </div>
             </div>
 
             <!-- Module 2: Tu Primera Clase -->
             <div class="module-content" data-module="2">
                 <div class="module-header">
-                    <h2 class="module-title">Tu Primera Clase: Pokemon</h2>
-                    <p class="module-description">Vamos a crear nuestra primera clase para representar un Pokémon</p>
+                    <h2 class="module-title">Your First Class: Pokemon</h2>
+                    <p class="module-description">Let's create our first class to represent a Pokémon</p>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Estructura de una Clase</h3>
-                    <p style="margin-bottom: 16px; line-height: 1.6;">Una clase en Python se define con la palabra clave <code style="background: var(--color-secondary); padding: 2px 6px; border-radius: 4px;">class</code>. Veamos cómo crear nuestra clase Pokemon:</p>
+                    <h3 class="section-title">Class Structure</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.6;">A class in Python is defined with the <code style="background: var(--color-secondary); padding: 2px 6px; border-radius: 4px;">class</code> keyword. Let's see how to create our Pokemon class:</p>
                     
                     <div class="code-section">
                         <div class="code-header">
-                            <h4>Código Python</h4>
-                            <button class="toggle-code-btn" onclick="toggleCode(2)">Mostrar Código</button>
+                            <h4>Python Code</h4>
+                            <button class="toggle-code-btn" onclick="toggleCode(2)">Show Code</button>
                         </div>
                         <div class="code-block" id="code-2">
                             <pre><span class="keyword">class</span> <span class="class-name">Pokemon</span>:
-    <span class="comment"># Constructor - se ejecuta cuando creamos un objeto</span>
-    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, nombre, tipo, hp_max):
-        <span class="keyword">self</span>.nombre = nombre
-        <span class="keyword">self</span>.tipo = tipo
+    <span class="comment"># Constructor - runs when we create an object</span>
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, name, ptype, hp_max):
+        <span class="keyword">self</span>.name = name
+        <span class="keyword">self</span>.ptype = ptype
         <span class="keyword">self</span>.hp_max = hp_max
         <span class="keyword">self</span>.hp_actual = hp_max
 
-<span class="comment"># Crear un objeto (instancia) de la clase</span>
-pikachu = Pokemon(<span class="string">"Pikachu"</span>, <span class="string">"Eléctrico"</span>, 35)
-<span class="function">print</span>(pikachu.nombre)  <span class="comment"># Salida: Pikachu</span></pre>
+<span class="comment"># Create an object (instance) of the class</span>
+pikachu = Pokemon(<span class="string">"Pikachu"</span>, <span class="string">"Electric"</span>, 35)
+<span class="function">print</span>(pikachu.name)  <span class="comment"># Output: Pikachu</span></pre>
                         </div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Desglosando el Código</h3>
+                    <h3 class="section-title">Breaking Down the Code</h3>
                     
                     <div class="concept-card">
                         <div class="concept-name">class Pokemon:</div>
-                        <div class="concept-definition">Define una nueva clase llamada Pokemon. Es como decir "voy a crear un nuevo tipo de cosa".</div>
+                        <div class="concept-definition">Defines a new class called Pokemon. It's like saying "I'm going to create a new type of thing".</div>
                     </div>
 
                     <div class="concept-card">
                         <div class="concept-name">def __init__(self, ...):</div>
-                        <div class="concept-definition">El constructor o inicializador. Se ejecuta automáticamente cuando creas un objeto. Es donde defines los atributos iniciales.</div>
+                        <div class="concept-definition">The constructor or initializer. It runs automatically when you create an object. This is where you define the initial attributes.</div>
                     </div>
 
                     <div class="concept-card">
                         <div class="concept-name">self</div>
-                        <div class="concept-definition">Representa la instancia actual del objeto. Es como decir "este Pokémon específico".</div>
+                        <div class="concept-definition">Represents the current instance of the object. It's like saying "this specific Pokémon".</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">self.nombre = nombre</div>
-                        <div class="concept-definition">Crea un atributo para el objeto. Cada Pokémon tendrá su propio nombre.</div>
+                        <div class="concept-name">self.name = name</div>
+                        <div class="concept-definition">Creates an attribute for the object. Each Pokémon will have its own name.</div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">¿Qué está pasando?</h3>
+                    <h3 class="section-title">What's Happening?</h3>
                     <div class="highlight-box">
-                        <p style="margin-bottom: 12px;"><strong>Paso 1:</strong> Definimos la clase Pokemon con sus atributos básicos</p>
-                        <p style="margin-bottom: 12px;"><strong>Paso 2:</strong> El <code>__init__</code> recibe los parámetros y los asigna como atributos</p>
-                        <p style="margin-bottom: 12px;"><strong>Paso 3:</strong> Creamos un objeto llamado <code>pikachu</code> con valores específicos</p>
-                        <p><strong>Paso 4:</strong> Ahora podemos acceder a los atributos con <code>pikachu.nombre</code></p>
+                        <p style="margin-bottom: 12px;"><strong>Step 1:</strong> We define the Pokemon class with its basic attributes</p>
+                        <p style="margin-bottom: 12px;"><strong>Step 2:</strong> The <code>__init__</code> receives the parameters and assigns them as attributes</p>
+                        <p style="margin-bottom: 12px;"><strong>Step 3:</strong> We create an object called <code>pikachu</code> with specific values</p>
+                        <p><strong>Step 4:</strong> Now we can access the attributes with <code>pikachu.name</code></p>
                     </div>
                 </div>
 
                 <div class="navigation-buttons">
-                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
-                    <button class="nav-btn" onclick="nextModule()">Siguiente →</button>
+                    <button class="nav-btn secondary" onclick="previousModule()">← Previous</button>
+                    <button class="nav-btn" onclick="nextModule()">Next →</button>
                 </div>
             </div>
 
             <!-- Module 3: Atributos y Métodos -->
             <div class="module-content" data-module="3">
                 <div class="module-header">
-                    <h2 class="module-title">Atributos y Métodos</h2>
-                    <p class="module-description">Aprende a agregar métodos (acciones) a tus clases</p>
+                    <h2 class="module-title">Attributes and Methods</h2>
+                    <p class="module-description">Learn how to add methods (actions) to your classes</p>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Agregando Comportamiento</h3>
-                    <p style="margin-bottom: 16px; line-height: 1.6;">Los métodos son funciones que pertenecen a una clase. Definen qué puede hacer un objeto:</p>
+                    <h3 class="section-title">Adding Behavior</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.6;">Methods are functions that belong to a class. They define what an object can do:</p>
                     
                     <div class="code-section">
                         <div class="code-header">
-                            <h4>Código Python</h4>
-                            <button class="toggle-code-btn" onclick="toggleCode(3)">Mostrar Código</button>
+                            <h4>Python Code</h4>
+                            <button class="toggle-code-btn" onclick="toggleCode(3)">Show Code</button>
                         </div>
                         <div class="code-block" id="code-3">
                             <pre><span class="keyword">class</span> <span class="class-name">Pokemon</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, nombre, tipo, hp_max):
-        <span class="keyword">self</span>.nombre = nombre
-        <span class="keyword">self</span>.tipo = tipo
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, name, ptype, hp_max):
+        <span class="keyword">self</span>.name = name
+        <span class="keyword">self</span>.ptype = ptype
         <span class="keyword">self</span>.hp_max = hp_max
         <span class="keyword">self</span>.hp_actual = hp_max
     
-    <span class="comment"># Método: una acción que puede hacer el Pokemon</span>
-    <span class="keyword">def</span> <span class="function">recibir_danio</span>(<span class="keyword">self</span>, danio):
-        <span class="keyword">self</span>.hp_actual = <span class="function">max</span>(0, <span class="keyword">self</span>.hp_actual - danio)
-        <span class="keyword">return</span> <span class="string">f"<span class="keyword">{self.nombre}</span> recibió <span class="keyword">{danio}</span> de daño"</span>
+    <span class="comment"># Method: an action the Pokemon can perform</span>
+    <span class="keyword">def</span> <span class="function">take_damage</span>(<span class="keyword">self</span>, damage):
+        <span class="keyword">self</span>.hp_actual = <span class="function">max</span>(0, <span class="keyword">self</span>.hp_actual - damage)
+        <span class="keyword">return</span> <span class="string">f"<span class="keyword">{self.name}</span> took <span class="keyword">{damage}</span> damage!"</span>
     
-    <span class="keyword">def</span> <span class="function">esta_vivo</span>(<span class="keyword">self</span>):
+    <span class="keyword">def</span> <span class="function">is_alive</span>(<span class="keyword">self</span>):
         <span class="keyword">return</span> <span class="keyword">self</span>.hp_actual &gt; 0
 
-pikachu = Pokemon(<span class="string">"Pikachu"</span>, <span class="string">"Eléctrico"</span>, 35)
-<span class="function">print</span>(pikachu.recibir_danio(10))  <span class="comment"># Pikachu recibió 10 de daño</span>
-<span class="function">print</span>(pikachu.esta_vivo())  <span class="comment"># True</span></pre>
+pikachu = Pokemon(<span class="string">"Pikachu"</span>, <span class="string">"Electric"</span>, 35)
+<span class="function">print</span>(pikachu.take_damage(10))  <span class="comment"># Pikachu took 10 damage!</span>
+<span class="function">print</span>(pikachu.is_alive())  <span class="comment"># True</span></pre>
                         </div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Tipos de Métodos</h3>
+                    <h3 class="section-title">Types of Methods</h3>
                     
                     <div class="concept-card">
-                        <div class="concept-name">Métodos de Instancia</div>
-                        <div class="concept-definition">Trabajan con datos del objeto específico. Siempre reciben <code>self</code> como primer parámetro. Ejemplo: <code>recibir_danio()</code></div>
+                        <div class="concept-name">Instance Methods</div>
+                        <div class="concept-definition">Work with data from the specific object. Always receive <code>self</code> as first parameter. Example: <code>take_damage()</code></div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Métodos que Modifican el Estado</div>
-                        <div class="concept-definition"><code>recibir_danio()</code> cambia el valor de <code>hp_actual</code>. El objeto se modifica.</div>
+                        <div class="concept-name">State-Modifying Methods</div>
+                        <div class="concept-definition"><code>take_damage()</code> changes the value of <code>hp_actual</code>. The object is modified.</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Métodos que Consultan</div>
-                        <div class="concept-definition"><code>esta_vivo()</code> solo lee datos sin modificar nada. Devuelve información.</div>
+                        <div class="concept-name">Query Methods</div>
+                        <div class="concept-definition"><code>is_alive()</code> only reads data without modifying anything. Returns information.</div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">¿Por qué usar métodos?</h3>
+                    <h3 class="section-title">Why use methods?</h3>
                     <div class="highlight-box">
-                        <p style="margin-bottom: 12px;"><strong>Encapsulación:</strong> El método <code>recibir_danio()</code> se asegura de que el HP nunca sea negativo usando <code>max(0, ...)</code></p>
-                        <p style="margin-bottom: 12px;"><strong>Reutilización:</strong> Puedes llamar <code>pikachu.recibir_danio(10)</code> cuantas veces necesites</p>
-                        <p><strong>Claridad:</strong> El código es más legible: <code>pikachu.esta_vivo()</code> vs <code>pikachu.hp_actual &gt; 0</code></p>
+                        <p style="margin-bottom: 12px;"><strong>Encapsulation:</strong> The <code>take_damage()</code> method ensures that HP is never negative using <code>max(0, ...)</code></p>
+                        <p style="margin-bottom: 12px;"><strong>Reusability:</strong> You can call <code>pikachu.take_damage(10)</code> as many times as you need</p>
+                        <p><strong>Clarity:</strong> Code is more readable: <code>pikachu.is_alive()</code> vs <code>pikachu.hp_actual &gt; 0</code></p>
                     </div>
                 </div>
 
                 <div class="navigation-buttons">
-                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
-                    <button class="nav-btn" onclick="nextModule()">Siguiente →</button>
+                    <button class="nav-btn secondary" onclick="previousModule()">← Previous</button>
+                    <button class="nav-btn" onclick="nextModule()">Next →</button>
                 </div>
             </div>
 
             <!-- Module 4: Herencia -->
             <div class="module-content" data-module="4">
                 <div class="module-header">
-                    <h2 class="module-title">Herencia y Polimorfismo</h2>
-                    <p class="module-description">Crea clases que heredan de otras clases</p>
+                    <h2 class="module-title">Inheritance and Polymorphism</h2>
+                    <p class="module-description">Create classes that inherit from other classes</p>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">¿Qué es la Herencia?</h3>
-                    <p style="margin-bottom: 16px; line-height: 1.6;">La herencia permite crear una clase nueva basada en una existente. La clase nueva (hija) obtiene todos los atributos y métodos de la clase original (padre).</p>
+                    <h3 class="section-title">What is Inheritance?</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.6;">Inheritance allows you to create a new class based on an existing one. The new class (child) gets all the attributes and methods of the original class (parent).</p>
                     
                     <div class="code-section">
                         <div class="code-header">
-                            <h4>Código Python</h4>
-                            <button class="toggle-code-btn" onclick="toggleCode(4)">Mostrar Código</button>
+                            <h4>Python Code</h4>
+                            <button class="toggle-code-btn" onclick="toggleCode(4)">Show Code</button>
                         </div>
                         <div class="code-block" id="code-4">
-                            <pre><span class="keyword">class</span> <span class="class-name">Movimiento</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, nombre, poder, tipo):
-        <span class="keyword">self</span>.nombre = nombre
-        <span class="keyword">self</span>.poder = poder
-        <span class="keyword">self</span>.tipo = tipo
+                            <pre><span class="keyword">class</span> <span class="class-name">Movement</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, name, power, ptype, accuracy):
+        <span class="keyword">self</span>.name = name
+        <span class="keyword">self</span>.power = power
+        <span class="keyword">self</span>.ptype = ptype
+        <span class="keyword">self</span>.accuracy = accuracy
 
-<span class="keyword">class</span> <span class="class-name">PokemonCombate</span>(Pokemon):
-    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, nombre, tipo, hp_max, movimientos=[]):
-        <span class="function">super</span>().<span class="function">__init__</span>(nombre, tipo, hp_max)
-        <span class="keyword">self</span>.movimientos = movimientos
+<span class="keyword">class</span> <span class="class-name">CombatPokemon</span>(Pokemon):
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, name, ptype, hp_max, movements=[]):
+        <span class="function">super</span>().<span class="function">__init__</span>(name, ptype, hp_max)
+        <span class="keyword">self</span>.movements = movements
     
-    <span class="keyword">def</span> <span class="function">atacar</span>(<span class="keyword">self</span>, movimiento):
-        <span class="keyword">return</span> <span class="string">f"<span class="keyword">{self.nombre}</span> usa <span class="keyword">{movimiento.nombre}</span>!"</span>
+    <span class="keyword">def</span> <span class="function">attack</span>(<span class="keyword">self</span>, movement):
+        <span class="keyword">return</span> <span class="string">f"<span class="keyword">{self.name}</span> uses <span class="keyword">{movement.name}</span>!"</span>
 
-rayo = Movimiento(<span class="string">"Rayo"</span>, 90, <span class="string">"Eléctrico"</span>)
-pikachu = PokemonCombate(<span class="string">"Pikachu"</span>, <span class="string">"Eléctrico"</span>, 35, [rayo])
-<span class="function">print</span>(pikachu.atacar(rayo))</pre>
+thunderbolt = Movement(<span class="string">"Thunderbolt"</span>, 90, <span class="string">"Electric"</span>, 100)
+pikachu = CombatPokemon(<span class="string">"Pikachu"</span>, <span class="string">"Electric"</span>, 35, [thunderbolt])
+<span class="function">print</span>(pikachu.attack(thunderbolt))</pre>
                         </div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Conceptos Clave</h3>
+                    <h3 class="section-title">Key Concepts</h3>
                     
                     <div class="concept-card">
-                        <div class="concept-name">class PokemonCombate(Pokemon):</div>
-                        <div class="concept-definition">PokemonCombate hereda de Pokemon. Obtiene automáticamente todos sus atributos y métodos.</div>
+                        <div class="concept-name">class CombatPokemon(Pokemon):</div>
+                        <div class="concept-definition">CombatPokemon inherits from Pokemon. It automatically gets all its attributes and methods.</div>
                     </div>
 
                     <div class="concept-card">
                         <div class="concept-name">super().__init__(...)</div>
-                        <div class="concept-definition">Llama al constructor de la clase padre (Pokemon) para inicializar los atributos básicos.</div>
+                        <div class="concept-definition">Calls the parent class (Pokemon) constructor to initialize the basic attributes.</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Extensión de Funcionalidad</div>
-                        <div class="concept-definition">PokemonCombate agrega nuevos atributos (movimientos) y métodos (atacar) sin modificar Pokemon.</div>
+                        <div class="concept-name">Functionality Extension</div>
+                        <div class="concept-definition">CombatPokemon adds new attributes (movements) and methods (attack) without modifying Pokemon.</div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Ventajas de la Herencia</h3>
+                    <h3 class="section-title">Advantages of Inheritance</h3>
                     <div class="highlight-box">
-                        <p style="margin-bottom: 12px;"><strong>Reutilización de Código:</strong> No necesitas reescribir nombre, tipo, hp_max</p>
-                        <p style="margin-bottom: 12px;"><strong>Especialización:</strong> PokemonCombate es un Pokemon con capacidades extra</p>
-                        <p><strong>Mantenibilidad:</strong> Si cambias Pokemon, PokemonCombate se actualiza automáticamente</p>
+                        <p style="margin-bottom: 12px;"><strong>Code Reuse:</strong> You don't need to rewrite name, type, hp_max</p>
+                        <p style="margin-bottom: 12px;"><strong>Specialization:</strong> CombatPokemon is a Pokemon with extra capabilities</p>
+                        <p><strong>Maintainability:</strong> If you change Pokemon, CombatPokemon updates automatically</p>
                     </div>
                 </div>
 
                 <div class="navigation-buttons">
-                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
-                    <button class="nav-btn" onclick="nextModule()">Siguiente →</button>
+                    <button class="nav-btn secondary" onclick="previousModule()">← Previous</button>
+                    <button class="nav-btn" onclick="nextModule()">Next →</button>
                 </div>
             </div>
 
             <!-- Module 5: Encapsulación -->
             <div class="module-content" data-module="5">
                 <div class="module-header">
-                    <h2 class="module-title">Encapsulación</h2>
-                    <p class="module-description">Protege los datos de tu clase con atributos privados</p>
+                    <h2 class="module-title">Encapsulation</h2>
+                    <p class="module-description">Protect your class data with private attributes</p>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">¿Por qué Encapsular?</h3>
-                    <p style="margin-bottom: 16px; line-height: 1.6;">La encapsulación esconde los detalles internos de una clase y solo expone lo necesario. Esto previene errores y hace tu código más seguro.</p>
+                    <h3 class="section-title">Why Encapsulate?</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.6;">Encapsulation hides the internal details of a class and only exposes what's necessary. This prevents errors and makes your code more secure.</p>
                     
                     <div class="code-section">
                         <div class="code-header">
-                            <h4>Código Python</h4>
-                            <button class="toggle-code-btn" onclick="toggleCode(5)">Mostrar Código</button>
+                            <h4>Python Code</h4>
+                            <button class="toggle-code-btn" onclick="toggleCode(5)">Show Code</button>
                         </div>
                         <div class="code-block" id="code-5">
                             <pre><span class="keyword">class</span> <span class="class-name">Pokemon</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, nombre, tipo, hp_max):
-        <span class="keyword">self</span>.nombre = nombre
-        <span class="keyword">self</span>.tipo = tipo
-        <span class="keyword">self</span>._hp_max = hp_max  <span class="comment"># _ indica que es protegido</span>
-        <span class="keyword">self</span>.__hp_actual = hp_max  <span class="comment"># __ hace que sea privado</span>
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, name, ptype, hp_max):
+        <span class="keyword">self</span>.name = name
+        <span class="keyword">self</span>.ptype = ptype
+        <span class="keyword">self</span>._hp_max = hp_max  <span class="comment"># _ indicates protected</span>
+        <span class="keyword">self</span>.__hp_actual = hp_max  <span class="comment"># __ makes it private</span>
     
-    <span class="comment"># Property: permite leer hp_actual de forma controlada</span>
+    <span class="comment"># Property: allows reading hp_actual in a controlled way</span>
     <span class="keyword">@property</span>
     <span class="keyword">def</span> <span class="function">hp</span>(<span class="keyword">self</span>):
         <span class="keyword">return</span> <span class="keyword">self</span>.__hp_actual
@@ -859,297 +860,313 @@ pikachu = PokemonCombate(<span class="string">"Pikachu"</span>, <span class="str
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Niveles de Acceso</h3>
+                    <h3 class="section-title">Access Levels</h3>
                     
                     <div class="concept-card">
-                        <div class="concept-name">Público: nombre</div>
-                        <div class="concept-definition">Se puede acceder desde cualquier lugar. Uso: <code>pokemon.nombre</code></div>
+                        <div class="concept-name">Public: name</div>
+                        <div class="concept-definition">Can be accessed from anywhere. Usage: <code>pokemon.name</code></div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Protegido: _hp_max</div>
-                        <div class="concept-definition">Convencion para indicar "solo usar internamente". Python no lo restringe técnicamente.</div>
+                        <div class="concept-name">Protected: _hp_max</div>
+                        <div class="concept-definition">Convention to indicate "use internally only". Python doesn't technically restrict it.</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Privado: __hp_actual</div>
-                        <div class="concept-definition">Python modifica el nombre para dificultar el acceso externo. Verdaderamente protegido.</div>
+                        <div class="concept-name">Private: __hp_actual</div>
+                        <div class="concept-definition">Python modifies the name to make external access difficult. Truly protected.</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">@property y @setter</div>
-                        <div class="concept-definition">Permiten acceder a atributos privados con validación. Parece un atributo pero es un método.</div>
+                        <div class="concept-name">@property and @setter</div>
+                        <div class="concept-definition">Allow accessing private attributes with validation. Looks like an attribute but is a method.</div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Beneficios Prácticos</h3>
+                    <h3 class="section-title">Practical Benefits</h3>
                     <div class="highlight-box">
-                        <p style="margin-bottom: 12px;"><strong>Validación:</strong> El setter se asegura que el HP nunca sea negativo o mayor al máximo</p>
-                        <p style="margin-bottom: 12px;"><strong>Control:</strong> Puedes cambiar la implementación interna sin afectar el código externo</p>
-                        <p><strong>Ejemplo:</strong> <code>pikachu.hp = -10</code> se convierte automáticamente en <code>pikachu.hp = 0</code></p>
+                        <p style="margin-bottom: 12px;"><strong>Validation:</strong> The setter ensures that HP is never negative or greater than the maximum</p>
+                        <p style="margin-bottom: 12px;"><strong>Control:</strong> You can change the internal implementation without affecting external code</p>
+                        <p><strong>Example:</strong> <code>pikachu.hp = -10</code> automatically becomes <code>pikachu.hp = 0</code></p>
                     </div>
                 </div>
 
                 <div class="navigation-buttons">
-                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
-                    <button class="nav-btn" onclick="nextModule()">Siguiente →</button>
+                    <button class="nav-btn secondary" onclick="previousModule()">← Previous</button>
+                    <button class="nav-btn" onclick="nextModule()">Next →</button>
                 </div>
             </div>
 
             <!-- Module 6: Composición -->
             <div class="module-content" data-module="6">
                 <div class="module-header">
-                    <h2 class="module-title">Composición</h2>
-                    <p class="module-description">Combina múltiples objetos para crear estructuras complejas</p>
+                    <h2 class="module-title">Composition</h2>
+                    <p class="module-description">Combine multiple objects to create complex structures</p>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Objetos Dentro de Objetos</h3>
-                    <p style="margin-bottom: 16px; line-height: 1.6;">La composición significa que un objeto contiene otros objetos. Es una relación "tiene un" (has-a) en lugar de "es un" (is-a) como la herencia.</p>
+                    <h3 class="section-title">Objects Within Objects</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.6;">Composition means that an object contains other objects. It's a "has-a" relationship instead of "is-a" like inheritance.</p>
                     
                     <div class="code-section">
                         <div class="code-header">
-                            <h4>Código Python</h4>
-                            <button class="toggle-code-btn" onclick="toggleCode(6)">Mostrar Código</button>
+                            <h4>Python Code</h4>
+                            <button class="toggle-code-btn" onclick="toggleCode(6)">Show Code</button>
                         </div>
                         <div class="code-block" id="code-6">
-                            <pre><span class="keyword">class</span> <span class="class-name">Pokemon</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, nombre, tipo, hp_max, movimientos=[]):
-        <span class="keyword">self</span>.nombre = nombre
-        <span class="keyword">self</span>.movimientos = movimientos  <span class="comment"># Pokemon TIENE movimientos</span>
+                            <pre><span class="keyword">class</span> <span class="class-name">Movement</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, name, power, ptype, accuracy):
+        <span class="keyword">self</span>.name = name
+        <span class="keyword">self</span>.power = power
+        <span class="keyword">self</span>.ptype = ptype
+        <span class="keyword">self</span>.accuracy = accuracy
 
-<span class="keyword">class</span> <span class="class-name">Entrenador</span>:
-    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, nombre, equipo=[]):
-        <span class="keyword">self</span>.nombre = nombre
-        <span class="keyword">self</span>.equipo = equipo  <span class="comment"># Entrenador TIENE Pokemon</span>
-    
-    <span class="keyword">def</span> <span class="function">agregar_pokemon</span>(<span class="keyword">self</span>, pokemon):
-        <span class="keyword">self</span>.equipo.append(pokemon)
-    
-    <span class="keyword">def</span> <span class="function">ver_equipo</span>(<span class="keyword">self</span>):
-        <span class="keyword">for</span> pokemon <span class="keyword">in</span> <span class="keyword">self</span>.equipo:
-            <span class="function">print</span>(<span class="string">f"- <span class="keyword">{pokemon.nombre}</span> (<span class="keyword">{pokemon.tipo}</span>)"</span>)
+<span class="keyword">class</span> <span class="class-name">Pokemon</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, name, ptype, hp_max, movements=None):
+        <span class="keyword">self</span>.name = name
+        <span class="keyword">self</span>.ptype = ptype
+        <span class="keyword">self</span>.hp_max = hp_max
+        <span class="keyword">self</span>.hp_actual = hp_max
+        <span class="keyword">self</span>.movements = movements <span class="keyword">if</span> movements <span class="keyword">is not None else</span> []  <span class="comment"># Pokemon HAS movements</span>
 
-ash = Entrenador(<span class="string">"Ash"</span>)
-pikachu = Pokemon(<span class="string">"Pikachu"</span>, <span class="string">"Eléctrico"</span>, 35)
-ash.agregar_pokemon(pikachu)
-ash.ver_equipo()</pre>
+<span class="keyword">class</span> <span class="class-name">Trainer</span>:
+    <span class="keyword">def</span> <span class="function">__init__</span>(<span class="keyword">self</span>, name):
+        <span class="keyword">self</span>.name = name
+        <span class="keyword">self</span>.team = []  <span class="comment"># Trainer HAS Pokemon</span>
+    
+    <span class="keyword">def</span> <span class="function">catch_pokemon</span>(<span class="keyword">self</span>, pokemon):
+        <span class="keyword">if</span> <span class="function">len</span>(<span class="keyword">self</span>.team) &lt; 6:
+            <span class="keyword">self</span>.team.append(pokemon)
+            <span class="keyword">return</span> <span class="string">f"<span class="keyword">{self.name}</span> caught <span class="keyword">{pokemon.name}</span>!"</span>
+    
+    <span class="keyword">def</span> <span class="function">view_team</span>(<span class="keyword">self</span>):
+        <span class="keyword">for</span> pokemon <span class="keyword">in</span> <span class="keyword">self</span>.team:
+            <span class="function">print</span>(<span class="string">f"- <span class="keyword">{pokemon.name}</span> (<span class="keyword">{pokemon.ptype}</span>)"</span>)
+
+<span class="comment"># Create movements</span>
+thunderbolt = Movement(<span class="string">"Thunderbolt"</span>, 90, <span class="string">"Electric"</span>, 100)
+
+<span class="comment"># Create Pokemon with movements</span>
+ash = Trainer(<span class="string">"Ash"</span>)
+pikachu = Pokemon(<span class="string">"Pikachu"</span>, <span class="string">"Electric"</span>, 35, [thunderbolt])
+ash.catch_pokemon(pikachu)
+ash.view_team()</pre>
                         </div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Composición vs Herencia</h3>
+                    <h3 class="section-title">Composition vs Inheritance</h3>
                     
                     <div class="concept-card">
-                        <div class="concept-name">Herencia (is-a)</div>
-                        <div class="concept-definition">PokemonCombate ES UN Pokemon. Usa cuando hay una relación de especialización.</div>
+                        <div class="concept-name">Inheritance (is-a)</div>
+                        <div class="concept-definition">CombatPokemon IS A Pokemon. Use when there's a specialization relationship.</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Composición (has-a)</div>
-                        <div class="concept-definition">Pokemon TIENE movimientos. Entrenador TIENE Pokémon. Usa cuando combinas objetos independientes.</div>
+                        <div class="concept-name">Composition (has-a)</div>
+                        <div class="concept-definition">Pokemon HAS movements. Trainer HAS Pokémon. Use when combining independent objects.</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Flexibilidad</div>
-                        <div class="concept-definition">Con composición puedes cambiar los movimientos de un Pokémon o el equipo de un Entrenador fácilmente.</div>
+                        <div class="concept-name">Flexibility</div>
+                        <div class="concept-definition">With composition you can easily change a Pokémon's movements or a Trainer's team.</div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Ejemplo del Simulador</h3>
+                    <h3 class="section-title">Simulator Example</h3>
                     <div class="highlight-box">
-                        <p style="margin-bottom: 12px;"><strong>Pokemon</strong> contiene una lista de objetos <strong>Movimiento</strong></p>
-                        <p style="margin-bottom: 12px;"><strong>Entrenador</strong> contiene una lista de objetos <strong>Pokemon</strong></p>
-                        <p style="margin-bottom: 12px;"><strong>Batalla</strong> contiene dos objetos <strong>Pokemon</strong> o <strong>Entrenador</strong></p>
-                        <p>Cada objeto mantiene su independencia pero trabajan juntos para crear el sistema completo.</p>
+                        <p style="margin-bottom: 12px;"><strong>Pokemon</strong> contains a list of <strong>Movement</strong> objects</p>
+                        <p style="margin-bottom: 12px;"><strong>Trainer</strong> contains a list of <strong>Pokemon</strong> objects</p>
+                        <p style="margin-bottom: 12px;"><strong>Battle</strong> contains two <strong>Pokemon</strong> or <strong>Trainer</strong> objects</p>
+                        <p>Each object maintains its independence but they work together to create the complete system.</p>
                     </div>
                 </div>
 
                 <div class="navigation-buttons">
-                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
-                    <button class="nav-btn" onclick="nextModule()">Siguiente →</button>
+                    <button class="nav-btn secondary" onclick="previousModule()">← Previous</button>
+                    <button class="nav-btn" onclick="nextModule()">Next →</button>
                 </div>
             </div>
 
             <!-- Module 7: Arquitectura -->
             <div class="module-content" data-module="7">
                 <div class="module-header">
-                    <h2 class="module-title">Arquitectura del Sistema</h2>
-                    <p class="module-description">Planifica cómo se relacionan todas las clases</p>
+                    <h2 class="module-title">System Architecture</h2>
+                    <p class="module-description">Plan how all classes relate to each other</p>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Diseño del Simulador</h3>
-                    <p style="margin-bottom: 16px; line-height: 1.6;">Antes de escribir código, es importante planificar la arquitectura. Veamos todas las clases que necesitamos y cómo se relacionan:</p>
+                    <h3 class="section-title">Simulator Design</h3>
+                    <p style="margin-bottom: 16px; line-height: 1.6;">Before writing code, it's important to plan the architecture. Let's see all the classes we need and how they relate:</p>
                     
                     <div class="architecture-section">
-                        <pre class="architecture-text"><strong>Pokemon</strong> (base)
-├── Atributos: nombre, tipo, hp_max, hp_actual, movimientos
-├── Métodos: recibir_danio(), atacar(), esta_vivo()
+                        <pre class="architecture-text"><strong>Pokemon</strong> (base class)
+├── Attributes: name, type, hp_max, hp_actual, movements
+├── Methods: take_damage(), attack(), is_alive()
 
-<strong>Movimiento</strong>
-├── Atributos: nombre, poder, tipo, precision
-├── Métodos: calcular_danio()
+<strong>Movement</strong>
+├── Attributes: name, power, type, accuracy
+├── Methods: describe()
 
-<strong>Tipo</strong>
-├── Atributos: nombre, ventajas, desventajas
-├── Métodos: calcular_efectividad()
+<strong>Type</strong>
+├── Attributes: name, advantages, disadvantages
+├── Methods: calculate_effectiveness()
 
-<strong>Batalla</strong>
-├── Atributos: pokemon1, pokemon2, turno, historial
-├── Métodos: ejecutar_turno(), finalizar(), obtener_ganador()
+<strong>Battle</strong>
+├── Attributes: pokemon1, pokemon2, turn, history
+├── Methods: execute_turn(), finish_battle()
 
-<strong>Entrenador</strong>
-├── Atributos: nombre, equipo (lista Pokemon)
-├── Métodos: cambiar_pokemon(), ver_equipo()</pre>
+<strong>Trainer</strong>
+├── Attributes: name, team (list of Pokemon)
+├── Methods: catch_pokemon(), switch_pokemon()</pre>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Diagrama de Arquitectura</h3>
+                    <h3 class="section-title">Architecture Diagram</h3>
                     <img src="https://ppl-ai-code-interpreter-files.s3.amazonaws.com/web/direct-files/bb99207bbdcc251986aad3be232ac821/957aa0aa-5604-4d44-a278-f8a33a39cb02/b2e5758f.png" alt="Arquitectura del Simulador" class="architecture-image">
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Relaciones Entre Clases</h3>
+                    <h3 class="section-title">Relationships Between Classes</h3>
                     
                     <div class="concept-card">
-                        <div class="concept-name">Pokemon → Movimiento (Composición)</div>
-                        <div class="concept-definition">Un Pokemon contiene múltiples Movimientos en su lista</div>
+                        <div class="concept-name">Pokemon → Movement (Composition)</div>
+                        <div class="concept-definition">A Pokemon contains multiple Movements in its list</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Pokemon → Tipo (Asociación)</div>
-                        <div class="concept-definition">Un Pokemon tiene un tipo que define ventajas/desventajas</div>
+                        <div class="concept-name">Pokemon → Type (Association)</div>
+                        <div class="concept-definition">A Pokemon has a type that defines advantages/disadvantages</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Entrenador → Pokemon (Composición)</div>
-                        <div class="concept-definition">Un Entrenador tiene un equipo de hasta 6 Pokemon</div>
+                        <div class="concept-name">Trainer → Pokemon (Composition)</div>
+                        <div class="concept-definition">A Trainer has a team of up to 6 Pokemon</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Batalla → Pokemon (Asociación)</div>
-                        <div class="concept-definition">Una Batalla conecta dos Pokemon/Entrenadores que combaten</div>
+                        <div class="concept-name">Battle → Pokemon (Association)</div>
+                        <div class="concept-definition">A Battle connects two Pokemon/Trainers that fight</div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Flujo de Batalla</h3>
+                    <h3 class="section-title">Battle Flow</h3>
                     <div class="highlight-box">
-                        <p style="margin-bottom: 12px;"><strong>1.</strong> Se crea una Batalla con dos Pokemon</p>
-                        <p style="margin-bottom: 12px;"><strong>2.</strong> En cada turno, un Pokemon usa un Movimiento</p>
-                        <p style="margin-bottom: 12px;"><strong>3.</strong> Se calcula el daño basado en poder, tipo y efectividad</p>
-                        <p style="margin-bottom: 12px;"><strong>4.</strong> El Pokemon rival recibe el daño</p>
-                        <p><strong>5.</strong> Se repite hasta que un Pokemon ya no está vivo</p>
+                        <p style="margin-bottom: 12px;"><strong>1.</strong> A Battle is created with two Pokemon</p>
+                        <p style="margin-bottom: 12px;"><strong>2.</strong> Each turn, a Pokemon uses a Movement</p>
+                        <p style="margin-bottom: 12px;"><strong>3.</strong> Damage is calculated based on power, type and effectiveness</p>
+                        <p style="margin-bottom: 12px;"><strong>4.</strong> The rival Pokemon takes the damage</p>
+                        <p><strong>5.</strong> Repeat until a Pokemon is no longer alive</p>
                     </div>
                 </div>
 
                 <div class="navigation-buttons">
-                    <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
-                    <button class="nav-btn" onclick="nextModule()">Siguiente →</button>
+                    <button class="nav-btn secondary" onclick="previousModule()">← Previous</button>
+                    <button class="nav-btn" onclick="nextModule()">Next →</button>
                 </div>
             </div>
 
             <!-- Module 8: Proyecto Final -->
             <div class="module-content" data-module="8">
                 <div class="module-header">
-                    <h2 class="module-title">Proyecto Final: Battle Simulator</h2>
-                    <p class="module-description">¡Hora de juntar todo y crear tu simulador!</p>
+                    <h2 class="module-title">Final Project: Battle Simulator</h2>
+                    <p class="module-description">Time to put everything together and create your simulator!</p>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Estructura del Proyecto GitHub</h3>
+                    <h3 class="section-title">GitHub Project Structure</h3>
                     <div class="architecture-section">
                         <pre class="architecture-text">pokemon-battle-simulator/
-├── README.md                 <span class="comment"># Descripción del proyecto</span>
-├── requirements.txt          <span class="comment"># Dependencias (si las hay)</span>
-├── main.py                   <span class="comment"># Archivo principal para ejecutar</span>
+├── README.md                 <span class="comment"># Project description</span>
+├── requirements.txt          <span class="comment"># Dependencies (if any)</span>
+├── main.py                   <span class="comment"># Main file to run</span>
 ├── src/
 │   ├── __init__.py
-│   ├── pokemon.py           <span class="comment"># Clase Pokemon</span>
-│   ├── movimiento.py        <span class="comment"># Clase Movimiento</span>
-│   ├── tipo.py              <span class="comment"># Clase Tipo</span>
-│   ├── batalla.py           <span class="comment"># Clase Batalla</span>
-│   └── entrenador.py        <span class="comment"># Clase Entrenador</span>
+│   ├── pokemon.py           <span class="comment"># Pokemon class</span>
+│   ├── movement.py          <span class="comment"># Movement class</span>
+│   ├── ptype.py             <span class="comment"># Type class</span>
+│   ├── battle.py            <span class="comment"># Battle class</span>
+│   └── trainer.py           <span class="comment"># Trainer class</span>
 ├── data/
-│   ├── pokemon.json         <span class="comment"># Datos de Pokemon</span>
-│   └── movimientos.json     <span class="comment"># Datos de movimientos</span>
+│   ├── pokemon.json         <span class="comment"># Pokemon data</span>
+│   └── movements.json       <span class="comment"># Movement data</span>
 └── tests/
     ├── test_pokemon.py
-    └── test_batalla.py</pre>
+    └── test_battle.py</pre>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Pasos para Implementar</h3>
+                    <h3 class="section-title">Implementation Steps</h3>
                     
                     <div class="concept-card">
-                        <div class="concept-name">Paso 1: Clases Básicas</div>
-                        <div class="concept-definition">Implementa Pokemon, Movimiento y Tipo con sus atributos y métodos básicos</div>
+                        <div class="concept-name">Step 1: Basic Classes</div>
+                        <div class="concept-definition">Implement Pokemon, Movement and Type with their basic attributes and methods</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Paso 2: Sistema de Tipos</div>
-                        <div class="concept-definition">Crea el sistema de ventajas/desventajas (Fuego &gt; Planta, Agua &gt; Fuego, etc.)</div>
+                        <div class="concept-name">Step 2: Type System</div>
+                        <div class="concept-definition">Create the advantages/disadvantages system (Fire &gt; Grass, Water &gt; Fire, etc.)</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Paso 3: Mecánicas de Combate</div>
-                        <div class="concept-definition">Implementa cálculo de daño, precisión, efectos críticos</div>
+                        <div class="concept-name">Step 3: Combat Mechanics</div>
+                        <div class="concept-definition">Implement damage calculation, accuracy, critical effects</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Paso 4: Clase Batalla</div>
-                        <div class="concept-definition">Sistema de turnos, selección de movimientos, condiciones de victoria</div>
+                        <div class="concept-name">Step 4: Battle Class</div>
+                        <div class="concept-definition">Turn system, movement selection, victory conditions</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Paso 5: Interfaz de Usuario</div>
-                        <div class="concept-definition">Crea un menú en consola para jugar batallas</div>
+                        <div class="concept-name">Step 5: User Interface</div>
+                        <div class="concept-definition">Create a console menu to play battles</div>
                     </div>
 
                     <div class="concept-card">
-                        <div class="concept-name">Paso 6: Tests y Documentación</div>
-                        <div class="concept-definition">Escribe tests unitarios y documenta tu código</div>
+                        <div class="concept-name">Step 6: Tests and Documentation</div>
+                        <div class="concept-definition">Write unit tests and document your code</div>
                     </div>
                 </div>
 
                 <div class="section">
-                    <h3 class="section-title">Características para Agregar</h3>
+                    <h3 class="section-title">Features to Add</h3>
                     <ul style="margin-left: 20px; line-height: 2;">
-                        <li>⚔️ Sistema de estadísticas (ataque, defensa, velocidad)</li>
-                        <li>🎯 Probabilidad de golpe crítico</li>
-                        <li>✨ Efectos de estado (parálisis, envenenamiento, etc.)</li>
-                        <li>🔄 Sistema de evolución de Pokemon</li>
-                        <li>👥 Batallas por equipos (múltiples Pokemon)</li>
-                        <li>💾 Guardar y cargar partidas</li>
-                        <li>📊 Estadísticas de batallas y historial</li>
-                        <li>🎨 Interfaz gráfica con pygame o tkinter</li>
+                        <li>⚔️ Stats system (attack, defense, speed)</li>
+                        <li>🎯 Critical hit probability</li>
+                        <li>✨ Status effects (paralysis, poison, etc.)</li>
+                        <li>🔄 Pokemon evolution system</li>
+                        <li>👥 Team battles (multiple Pokemon)</li>
+                        <li>💾 Save and load games</li>
+                        <li>📊 Battle statistics and history</li>
+                        <li>🎨 Graphical interface with pygame or tkinter</li>
                     </ul>
                 </div>
 
                 <div class="final-summary">
-                    <h3>🎉 ¡Felicidades!</h3>
-                    <p>Has completado el curso de OOP con Python. Ahora tienes las herramientas para crear tu simulador de combate Pokémon y subirlo a GitHub.</p>
-                    <a href="https://github.com" target="_blank" class="github-link">📦 Sube tu proyecto a GitHub</a>
+                    <h3>🎉 Congratulations!</h3>
+                    <p>You've completed the OOP with Python course. Now you have the tools to create your Pokémon battle simulator and upload it to GitHub.</p>
+                    <a href="https://github.com" target="_blank" class="github-link">📦 Upload your project to GitHub</a>
                 </div>
 
                 <div class="section" style="margin-top: 24px;">
-                    <h3 class="section-title">Recursos Adicionales</h3>
+                    <h3 class="section-title">Additional Resources</h3>
                     <div class="highlight-box">
-                        <p style="margin-bottom: 12px;"><strong>Documentación:</strong> <a href="https://docs.python.org/3/tutorial/classes.html" target="_blank">Python Classes Tutorial</a></p>
-                        <p style="margin-bottom: 12px;"><strong>Inspiración:</strong> <a href="https://github.com/topics/pokemon-battle" target="_blank">Proyectos similares en GitHub</a></p>
-                        <p><strong>Comunidad:</strong> Comparte tu proyecto en r/learnpython o r/python</p>
+                        <p style="margin-bottom: 12px;"><strong>Documentation:</strong> <a href="https://docs.python.org/3/tutorial/classes.html" target="_blank">Python Classes Tutorial</a></p>
+                        <p style="margin-bottom: 12px;"><strong>Inspiration:</strong> <a href="https://github.com/topics/pokemon-battle" target="_blank">Similar projects on GitHub</a></p>
+                        <p><strong>Community:</strong> Share your project on r/learnpython or r/python</p>
                     </div>
                 </div>
 
                 <div class="navigation-buttons">
                     <button class="nav-btn secondary" onclick="previousModule()">← Anterior</button>
-                    <button class="nav-btn" onclick="goToModule(0)">Volver al Inicio</button>
+                    <button class="nav-btn" onclick="goToModule(0)">Back to Start</button>
                 </div>
             </div>
         </main>
@@ -1158,15 +1175,15 @@ ash.ver_equipo()</pre>
     <script>
         // Module data
         const modules = [
-            { title: "Introducción", number: 0 },
-            { title: "Conceptos Básicos", number: 1 },
-            { title: "Primera Clase", number: 2 },
-            { title: "Atributos y Métodos", number: 3 },
-            { title: "Herencia", number: 4 },
-            { title: "Encapsulación", number: 5 },
-            { title: "Composición", number: 6 },
-            { title: "Arquitectura", number: 7 },
-            { title: "Proyecto Final", number: 8 }
+            { title: "Introduction", number: 0 },
+            { title: "OOP Basics", number: 1 },
+            { title: "First Class", number: 2 },
+            { title: "Attributes & Methods", number: 3 },
+            { title: "Inheritance", number: 4 },
+            { title: "Encapsulation", number: 5 },
+            { title: "Composition", number: 6 },
+            { title: "Architecture", number: 7 },
+            { title: "Final Project", number: 8 }
         ];
 
         let currentModule = 0;
@@ -1252,10 +1269,10 @@ ash.ver_equipo()</pre>
             
             if (codeBlock.classList.contains('visible')) {
                 codeBlock.classList.remove('visible');
-                button.textContent = 'Mostrar Código';
+                button.textContent = 'Show Code';
             } else {
                 codeBlock.classList.add('visible');
-                button.textContent = 'Ocultar Código';
+                button.textContent = 'Hide Code';
             }
         }
 
